@@ -213,22 +213,7 @@ footer{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
 footer .fn{display:block;font-size:22px;font-weight:800;letter-spacing:-.01em;margin-bottom:6px}
 footer b{font-weight:500;opacity:.9;margin-bottom:16px}
 footer small{display:block;max-width:44ch;margin:10px auto 0;line-height:1.5}
-</style>
-<!-- Pixel Utmify — vinculado ao Pixel Meta 1659746999190393 -->
-<script>
-(function () {
-  window.pixelId = "6adc3ab459fab67bda59e321";
-  var script = document.createElement("script");
-  script.src = "https://cdn.utmify.com.br/scripts/pixel/pixel.js";
-  script.async = true;
-  script.defer = true;
-  (document.head || document.documentElement).appendChild(script);
-})();
-</script>
-<!-- Fim Pixel Utmify -->
-</head><body>
-
-
+</style></head><body>
 <div class="bar" id="bar">⏰ A promoção dessa página acaba no dia <span id="pd"></span></div>
 
 <section class="hero c"><div class="w">
@@ -422,8 +407,23 @@ CFG.reviews.forEach((r,i)=>{
 });
 /* rolagem suave para checkout dos botões de CTA */
 </script>
-
-<!-- Utmify: executar após a configuração dos links de checkout. -->
-<script src="https://cdn.utmify.com.br/scripts/utms/latest.js"
- data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+<!-- ===== TRACKING DASHBOARD (Firestore: lp_sessions) ===== -->
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import{getFirestore,doc,setDoc,serverTimestamp}from"https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+const PRODUCT='lp-receitas';
+const db=getFirestore(initializeApp({apiKey:"AIzaSyDs8d7vR6gcqhzycJ3oPokIxnhVT-No6tE",authDomain:"lp-receitas.firebaseapp.com",projectId:"lp-receitas",storageBucket:"lp-receitas.firebasestorage.app",messagingSenderId:"137885130898",appId:"1:137885130898:web:5f76c46e409dba61e6064b"}));
+let sid;try{sid=sessionStorage.getItem('lp_sid');if(!sid){sid='lp_'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);sessionStorage.setItem('lp_sid',sid);}}catch(e){sid='lp_'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);}
+const q=new URLSearchParams(location.search);
+const st={sessionId:sid,product:PRODUCT,utm_source:(q.get('utm_source')||'').toLowerCase(),utm_campaign:q.get('utm_campaign')||'',utm_content:q.get('utm_content')||'',utm_term:q.get('utm_term')||'',device:/Mobi|Android/i.test(navigator.userAgent)?'mobile':'desktop',maxScroll:0,viewedPlans:false,clickedPlan:'',checkout:false};
+let first=true,timer=null;
+function save(){clearTimeout(timer);timer=setTimeout(()=>{const d={...st,lastActivity:serverTimestamp()};if(first){d.enteredAt=serverTimestamp();first=false;}setDoc(doc(db,'lp_sessions',sid),d,{merge:true}).catch(()=>{});},400);}
+save();
+let ms=0;addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;if(h<=0)return;const p=Math.round(Math.min(100,scrollY/h*100)/25)*25;if(p>ms){ms=p;st.maxScroll=p;save();}},{passive:true});
+const pl=document.getElementById('planos');
+if(pl&&'IntersectionObserver'in window){const io=new IntersectionObserver(e=>{if(e[0].isIntersecting){st.viewedPlans=true;save();io.disconnect();}},{threshold:.3});io.observe(pl);}
+document.addEventListener('click',e=>{const a=e.target.closest('a.buy1,a.buy2');if(!a)return;st.clickedPlan=a.classList.contains('buy1')?'p1':'p2';st.checkout=true;st.viewedPlans=true;save();},true);
+setInterval(()=>{if(!document.hidden)save();},20000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)save();});
+</script>
 </body></html>
