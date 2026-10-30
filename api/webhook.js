@@ -16,6 +16,19 @@ const pick = (o, keys) => {
   return undefined;
 };
 
+// Identifica de qual LP veio a venda.
+// 1) ?lp=receitinhas-nanna na URL do webhook (se o Wiapy permitir uma URL por produto) tem prioridade;
+// 2) senão procura pistas no nome do produto e nos links de checkout dentro do payload;
+// 3) se não achar nada, vale a LP original.
+const PRODUCTS = ['lp-receitas', 'receitinhas-nanna'];
+const detectProduct = (req, b, productName) => {
+  const q = String(req.query.lp || '').trim();
+  if (PRODUCTS.includes(q)) return q;
+  const raw = JSON.stringify(b);
+  if (/receitinhas/i.test(productName) || /KLaW_j_O73mv|Qn_RvY77YvIl/.test(raw)) return 'receitinhas-nanna';
+  return 'lp-receitas';
+};
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(200).send('ok');
   if (process.env.WEBHOOK_KEY && req.query.key !== process.env.WEBHOOK_KEY) {
@@ -29,14 +42,16 @@ module.exports = async (req, res) => {
     if (Number.isInteger(amount) && amount >= 500) amount = amount / 100; // veio em centavos
 
     const id = String(pick(b, ['id', 'transaction_id', 'transactionId', 'order_id', 'data.id', 'transaction.id']) || Date.now());
+    const productName = String(pick(b, ['product.name', 'productName', 'product_name', 'offer.name']) || '');
+    const product = detectProduct(req, b, productName);
     await db.collection('sales').doc(id).set({
-      product: 'lp-receitas',
+      product,
       status,
       isPaid,
       amount,
       paymentMethod: String(pick(b, ['paymentMethod', 'payment_method', 'method', 'payment.method']) || 'pix').toLowerCase(),
       customerName: pick(b, ['customerName', 'customer.name', 'client.name', 'buyer.name', 'name', 'data.customer.name']) || 'Cliente',
-      productName: pick(b, ['product.name', 'productName', 'product_name', 'offer.name']) || '',
+      productName,
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
       raw: JSON.stringify(b).slice(0, 8000),
     }, { merge: true });
