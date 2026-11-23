@@ -10,6 +10,7 @@ if (!admin.apps.length) {
 }
 const db = admin.firestore();
 const FV = admin.firestore.FieldValue;
+const push = require('./_push'); // notificação de venda aprovada no celular
 
 // ---- Identificação do produto (LP) ----
 // 1) ?lp=slug na URL do webhook tem prioridade;
@@ -104,6 +105,10 @@ module.exports = async (req, res) => {
     if (prev.exists && prev.get('isPaid') === true && !isPaid && !doc.refundedAt) return res.status(200).send('ok');
 
     await ref.set(doc, { merge: true });
+    // venda acabou de ser aprovada (não avisa de novo se a Wiapy repetir o evento)
+    if (isPaid && !(prev.exists && prev.get('isPaid') === true)) {
+      await push.sendAll(db, push.saleMessage(doc)).catch(e => console.error('push', e));
+    }
     return res.status(200).send('ok');
   } catch (e) {
     console.error(e);
