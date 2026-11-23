@@ -16,12 +16,14 @@ const FV = admin.firestore.FieldValue;
 // 2) senão, pelo id do checkout (preencha conforme for criando checkouts);
 // 3) senão, pelo nome do checkout/produto;
 // 4) se nada bater, cai na LP original.
-const PRODUCTS = ['lp-receitas', 'receitinhas-nanna'];
+const PRODUCTS = ['lp-receitas', 'receitinhas-nanna', 'gostosuras-nanna'];
 const CHECKOUTS = {
   '6ae18a5c00e69ea828e7eb71': 'receitinhas-nanna', // +365 Receitinhas da Nanna — Premium com Cardápio (R$ 18)
   '6ae189ec00e69ea828e7e3c1': 'receitinhas-nanna', // Receitinhas da Nanna — +365 Receitas para Bebês (R$ 10)
   '6ada6db6d032443944e97f29': 'lp-receitas',       // 365 Receitas Secretas da Chef Nanna Azuos (R$ 10)
   '6ada6e941ecf58111b4bc012': 'lp-receitas',       // 500 Receitas Secretas da Chef Nanna Azuos — Edição Premium (R$ 18)
+  '6b0241bff6f34fd109a8f00e': 'gostosuras-nanna',  // Gostosuras da Chef Nanna — Completo (R$ 18)
+  '6b02426d89843186c063b7c7': 'gostosuras-nanna',  // Gostosuras da Chef Nanna — Essencial (R$ 10)
 };
 // Atenção: os dois produtos têm "Nanna" no nome, então o nome só serve de reserva e usa palavras exclusivas.
 const BY_NAME = [
